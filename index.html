@@ -1,373 +1,420 @@
-  <!-- Logo y Título Institucional -->
-  <div class="flex items-center gap-3.5">
-    <!-- Escudo Oficial CIP en SVG Puro -->
-    <div class="w-13 h-13 shrink-0 flex items-center justify-center p-0.5 rounded-full bg-slate-900 border-2 border-amber-500/70 shadow-lg shadow-red-950/50">
-      <svg class="w-11 h-11" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="gearBorder" width="50" height="50" patternUnits="userSpaceOnUse">
-            <circle cx="25" cy="25" r="24" fill="#C99846"/>
-          </pattern>
-          <path id="txtCircle" d="M 90,250 A 160,160 0 1,1 410,250" fill="none"/>
-        </defs>
-        <!-- Borde exterior dentado dorado -->
-        <circle cx="250" cy="250" r="240" fill="#C99846"/>
-        <!-- Fondo circular rojo CIP -->
-        <circle cx="250" cy="250" r="215" fill="#D41818" stroke="#000000" stroke-width="4"/>
-        <!-- Dientes oscuros exteriores -->
-        <g stroke="#C99846" stroke-width="12" fill="#1C1F1D">
-          <circle cx="250" cy="250" r="230" stroke-dasharray="24 16"/>
-        </g>
-        <circle cx="250" cy="250" r="195" fill="#DC2626"/>
-        <!-- Texto circular -->
-        <text fill="#FFFFFF" font-family="'Impact', 'Arial Black', sans-serif" font-size="28" font-weight="900" letter-spacing="3">
-          <textPath href="#txtCircle" startOffset="50%" text-anchor="middle">
-            COLEGIO DE INGENIEROS DEL PERU
-          </textPath>
-        </text>
-        <!-- Triángulo Central CIP -->
-        <polygon points="250,110 130,320 370,320" fill="#111827" stroke="#C99846" stroke-width="8"/>
-        <text x="250" y="420" text-anchor="middle" fill="#FFFFFF" font-family="'Impact', sans-serif" font-size="44" font-weight="bold">1962</text>
-        <!-- Letras CIP estilizadas -->
-        <path d="M 175,250 Q 175,200 215,200 L 215,225 Q 195,225 195,250 Q 195,275 215,275 L 215,300 Q 175,300 175,250 Z" fill="#C99846"/>
-        <rect x="238" y="145" width="24" height="155" fill="#C99846"/>
-        <path d="M 280,200 L 320,200 Q 345,200 345,235 Q 345,270 320,270 L 280,270 Z" fill="#C99846"/>
-        <circle cx="305" cy="235" r="15" fill="#111827"/>
-      </svg>
-    </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía Oficial: Instalación Revit MCP (Demolinator) | CIP - BIM + IA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    code, pre {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .cip-red {
+      color: #990000;
+    }
+    .bg-cip-red {
+      background-color: #990000;
+    }
+    .border-cip-red {
+      border-color: #990000;
+    }
+    .step-badge {
+      box-shadow: 0 0 15px rgba(153, 0, 0, 0.25);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-red-700 selection:text-white">
 
-    <div>
-      <div class="flex items-center gap-2">
-        <span class="text-[10px] font-black tracking-wider uppercase px-2 py-0.5 rounded bg-red-950 text-red-400 border border-red-900/80">
-          Colegio de Ingenieros del Perú
+  <!-- Header Institucional CIP -->
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      
+      <!-- Logo e Institución -->
+      <div class="flex items-center gap-4">
+        <!-- Escudo / Logo SVG Colegio de Ingenieros del Perú -->
+        <div class="w-14 h-14 bg-white p-1 rounded-xl shadow-md flex items-center justify-center border-2 border-red-700 shrink-0">
+          <svg viewBox="0 0 100 100" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,4 94,26 94,74 50,96 6,74 6,26" fill="#990000" stroke="#ffd700" stroke-width="2"/>
+            <polygon points="50,10 88,29 88,71 50,90 12,71 12,29" fill="#7a0000"/>
+            <circle cx="50" cy="50" r="28" fill="#ffffff" stroke="#ffd700" stroke-width="2"/>
+            <!-- Simbolo Compás y Regla / Antorcha CIP -->
+            <path d="M50 26 L54 44 L46 44 Z" fill="#990000"/>
+            <path d="M38 68 L50 36 L62 68 L56 68 L50 50 L44 68 Z" fill="#222222"/>
+            <circle cx="50" cy="38" r="4" fill="#ffd700"/>
+            <rect x="36" y="56" width="28" height="4" fill="#990000"/>
+            <text x="50" y="84" font-size="7" font-weight="bold" text-anchor="middle" fill="#ffffff" font-family="Arial">C.I.P.</text>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-red-950/80 text-red-400 border border-red-800">Capítulo de Ingeniería Civil</span>
+            <span class="text-xs font-medium text-slate-400">Comisión BIM & IA</span>
+          </div>
+          <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+            Colegio de Ingenieros del Perú
+          </h1>
+          <p class="text-xs text-slate-400">Guía Técnica de Laboratorio • Automatización con Model Context Protocol (MCP)</p>
+        </div>
+      </div>
+
+      <!-- Badge de Versión del Taller -->
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-950/60 text-emerald-400 border border-emerald-800">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Revit 2024 - 2027 Compatible
         </span>
-        <span class="text-[10px] text-slate-400 hidden sm:inline">• Comisión BIM & IA</span>
-      </div>
-      <h1 class="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-        Laboratorio BIM: Servidores MCP
-      </h1>
-    </div>
-  </div>
-
-  <!-- Accesos Directos -->
-  <div class="flex items-center gap-3">
-    <a href="#pasos" class="px-3.5 py-2 text-xs font-semibold rounded-lg bg-red-700 hover:bg-red-800 text-white shadow-lg shadow-red-900/40 transition flex items-center gap-2">
-      <i class="fa-solid fa-terminal"></i>
-      <span>Guía Paso a Paso</span>
-    </a>
-  </div>
-
-</div>
-
-
-<section class="text-center space-y-4">
-  <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-red-950/60 border border-red-800/80 text-red-300">
-    <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-    Especialización Profesional • Revit 2024 a 2027
-  </div>
-
-  <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-    Conexión de Modelos BIM con <span class="bg-gradient-to-r from-red-500 via-rose-400 to-amber-400 bg-clip-text text-transparent">Model Context Protocol (MCP)</span>
-  </h2>
-
-  <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-    Protocolo estandarizado para vincular el motor de geometría de <strong>Autodesk Revit</strong> con <strong>Claude Desktop</strong>. Compara metrados paramétricos automatizados frente a agentes de generación geométrica por planos.
-  </p>
-</section>
-
-<!-- ARQUITECTURA TÉCNICA -->
-<section class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl space-y-4">
-  <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-    <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-300">
-      <i class="fa-solid fa-network-wired text-red-500"></i>
-      Esquema de Comunicación del Taller
-    </div>
-    <span class="text-[11px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">
-      Puente Activo
-    </span>
-  </div>
-
-  <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-center text-xs">
-    <div class="p-4 rounded-xl bg-slate-950 border border-slate-800/80">
-      <i class="fa-solid fa-comments text-amber-400 text-2xl mb-2"></i>
-      <p class="font-bold text-white">Claude Desktop</p>
-      <p class="text-[11px] text-slate-400 mt-1">Interpreta planos PDF y genera órdenes</p>
-    </div>
-
-    <div class="p-4 rounded-xl bg-slate-950 border border-slate-800/80">
-      <i class="fa-brands fa-python text-sky-400 text-2xl mb-2"></i>
-      <p class="font-bold text-white">FastMCP (uv)</p>
-      <p class="text-[11px] text-slate-400 mt-1">Servidor local de llamadas en Python</p>
-    </div>
-
-    <div class="p-4 rounded-xl bg-slate-950 border border-slate-800/80">
-      <i class="fa-solid fa-bolt text-emerald-400 text-2xl mb-2"></i>
-      <p class="font-bold text-white">pyRevit Routes</p>
-      <p class="text-[11px] text-slate-400 mt-1">Socket HTTP local (puerto 48884)</p>
-    </div>
-
-    <div class="p-4 rounded-xl bg-slate-950 border border-red-900/40">
-      <i class="fa-solid fa-cubes text-red-500 text-2xl mb-2"></i>
-      <p class="font-bold text-white">Revit API Engine</p>
-      <p class="text-[11px] text-slate-400 mt-1">Extracción de metrados y modelado 3D</p>
-    </div>
-  </div>
-</section>
-
-<!-- GUÍA PASO A PASO -->
-<div id="pasos" class="space-y-8 pt-4">
-
-  <!-- PASO 1 -->
-  <section class="relative pl-8 sm:pl-10 border-l-2 border-red-700/60 space-y-4">
-    <div class="absolute -left-3.5 sm:-left-4 top-0 w-8 h-8 rounded-full bg-red-700 text-white font-bold flex items-center justify-center text-sm shadow-md ring-4 ring-[#07090E]">
-      1
-    </div>
-    
-    <div>
-      <span class="text-xs font-mono font-bold uppercase tracking-wider text-red-400">Paso 01 • Entorno de Ejecución</span>
-      <h3 class="text-xl font-bold text-white mt-0.5">Instalar el Gestor Astral UV (Python)</h3>
-      <p class="text-sm text-slate-300 mt-1">
-        <code>uv</code> resuelve e instala las dependencias de Demolinator a alta velocidad sin ensuciar tu instalación principal de Python.
-      </p>
-    </div>
-
-    <div class="space-y-2">
-      <span class="text-xs text-slate-400">Abre <strong>PowerShell</strong> y pega el comando de instalación:</span>
-      <div class="relative group">
-        <pre class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs text-amber-300 overflow-x-auto"><code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
-        <button onclick="copiar(this)" class="absolute right-2.5 top-2.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs border border-slate-700 transition flex items-center gap-1.5 shadow">
-          <i class="fa-regular fa-copy"></i> <span>Copiar</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="p-3.5 rounded-xl bg-amber-950/30 border border-amber-900/50 text-xs text-amber-200 flex items-start gap-2.5">
-      <i class="fa-solid fa-triangle-exclamation text-amber-400 mt-0.5 shrink-0"></i>
-      <div>
-        <strong>Comprobación obligatoria:</strong>
-        Cierra esa consola de PowerShell y abre una nueva. Luego escribe <code>uv --version</code> para verificar que responda con la versión instalada (ej: <code>uv 0.12.x</code>).
-      </div>
-    </div>
-  </section>
-
-  <!-- PASO 2 -->
-  <section class="relative pl-8 sm:pl-10 border-l-2 border-red-700/60 space-y-4">
-    <div class="absolute -left-3.5 sm:-left-4 top-0 w-8 h-8 rounded-full bg-red-700 text-white font-bold flex items-center justify-center text-sm shadow-md ring-4 ring-[#07090E]">
-      2
-    </div>
-    
-    <div>
-      <span class="text-xs font-mono font-bold uppercase tracking-wider text-red-400">Paso 02 • pyRevit Extensions</span>
-      <h3 class="text-xl font-bold text-white mt-0.5">Clonar el Servidor Demolinator</h3>
-      <p class="text-sm text-slate-300 mt-1">
-        Demolinator se integra como una extensión nativa para que pyRevit exponga sus herramientas al protocolo MCP.
-      </p>
-    </div>
-
-    <div class="space-y-2">
-      <span class="text-xs text-slate-400">Ejecuta en PowerShell para entrar a la carpeta de pyRevit y clonar el repositorio:</span>
-      <div class="relative group">
-        <pre class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs text-amber-300 overflow-x-auto"><code>cd "$env:APPDATA\pyRevit\Extensions"
-
-
-git clone https://github.com/Demolinator/revit-mcp-server.git revit-mcp.extension
-
- Copiar
-
-
-
-
-    <div class="space-y-2">
-      <span class="text-xs text-slate-400">Luego instala sus entornos y paquetes virtuales con:</span>
-      <div class="relative group">
-        <pre class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs text-amber-300 overflow-x-auto"><code>cd "$env:APPDATA\pyRevit\Extensions\revit-mcp.extension"
-
-
-uv sync
-
- Copiar
-
-
-
-
-
-  <!-- PASO 3 -->
-  <section class="relative pl-8 sm:pl-10 border-l-2 border-red-700/60 space-y-4">
-    <div class="absolute -left-3.5 sm:-left-4 top-0 w-8 h-8 rounded-full bg-red-700 text-white font-bold flex items-center justify-center text-sm shadow-md ring-4 ring-[#07090E]">
-      3
-    </div>
-    
-    <div>
-      <span class="text-xs font-mono font-bold uppercase tracking-wider text-red-400">Paso 03 • Ajustes de pyRevit</span>
-      <h3 class="text-xl font-bold text-white mt-0.5">Vincular Carpeta y Encender Rutas (Beta)</h3>
-      <p class="text-sm text-slate-300 mt-1">
-        Configuración dentro de la interfaz de Revit para prevenir el error <code>RouteHandlerNotDefinedException</code> o congelamientos del programa.
-      </p>
-    </div>
-
-    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3 text-xs leading-relaxed text-slate-300">
-      <ol class="list-decimal list-inside space-y-2">
-        <li>Abre <strong>Autodesk Revit</strong> y carga cualquier proyecto o plantilla.</li>
-        <li>En la cinta superior ve a: <strong>pyRevit</strong> ➔ desplegable <strong>pyRevit</strong> ➔ <strong>Settings</strong>.</li>
-        <li>
-          En la sección <strong>"Directorios de Extensión Personalizados"</strong> (abajo), haz clic en <strong>Agregar carpeta</strong> y añade:
-          <code class="block my-1.5 p-2 rounded bg-slate-950 border border-slate-800 text-amber-300 font-mono">
-            C:\Users\TU_USUARIO\AppData\Roaming\pyRevit\Extensions
-          </code>
-          <span class="text-slate-400 text-[11px]">(Selecciona la carpeta Extensions contenedora, no la subcarpeta interior).</span>
-        </li>
-        <li>
-          En el menú de la izquierda ve a <strong>Rutas</strong> y activa el switch:
-          <span class="text-emerald-400 font-bold block my-1">
-            <i class="fa-solid fa-toggle-on text-emerald-400 text-sm"></i> Servidor de Rutas (Beta) &rarr; ACTIVADO
-          </span>
-        </li>
-        <li>
-          Haz clic en <strong>Solo Guardar Configuración</strong>.
-          <span class="text-rose-400 block font-semibold mt-1">
-            &rarr; Cierra Revit por completo y vuelve a abrirlo (no uses "Guardar y recargar" para evitar bloqueos del proceso).
-          </span>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- PASO 4 -->
-  <section class="relative pl-8 sm:pl-10 border-l-2 border-red-700/60 space-y-4">
-    <div class="absolute -left-3.5 sm:-left-4 top-0 w-8 h-8 rounded-full bg-red-700 text-white font-bold flex items-center justify-center text-sm shadow-md ring-4 ring-[#07090E]">
-      4
-    </div>
-    
-    <div>
-      <span class="text-xs font-mono font-bold uppercase tracking-wider text-red-400">Paso 04 • Diagnóstico de Conexión</span>
-      <h3 class="text-xl font-bold text-white mt-0.5">Comprobar Servidor Local de Revit</h3>
-      <p class="text-sm text-slate-300 mt-1">
-        Verifica que el puerto 48884 esté activo y responda con los metadatos de tu modelo antes de conectar Claude.
-      </p>
-    </div>
-
-    <div class="space-y-2">
-      <span class="text-xs text-slate-400">Abre una pestaña en tu navegador web e ingresa a:</span>
-      <div class="flex items-center gap-2">
-        <a href="http://localhost:48884/revit_mcp/status/" target="_blank" class="flex-1 p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono text-sky-400 hover:text-sky-300 hover:border-sky-800 transition flex items-center justify-between">
-          <span>http://localhost:48884/revit_mcp/status/</span>
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <a href="#quickstart" class="text-xs font-semibold bg-red-700 hover:bg-red-800 text-white px-3.5 py-1.5 rounded-lg transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-play"></i> Iniciar
         </a>
       </div>
-    </div>
 
-    <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-2">
-      <div class="text-emerald-400 font-semibold flex items-center gap-1.5">
-        <i class="fa-solid fa-circle-check"></i> Respuesta Exitosa Esperada:
+    </div>
+  </header>
+
+  <!-- Banner Hero -->
+  <section class="border-b border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 py-12 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto text-center space-y-4">
+      <div class="inline-block px-3 py-1 rounded-full text-xs font-mono text-red-400 bg-red-950/50 border border-red-900/60">
+        MÓDULO PRÁCTICO II • BIM AGÉNTICO
       </div>
-      <pre class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-[11px] text-slate-300 overflow-x-auto"><code>{
-
-
-"status": "active",
-"health": "healthy",
-"revit_available": true,
-"document_title": "proyecot real.rvt",
-"api_name": "revit_mcp"
-}
-
-
-
-  <!-- PASO 5 -->
-  <section class="relative pl-8 sm:pl-10 border-l-2 border-red-700/60 space-y-4">
-    <div class="absolute -left-3.5 sm:-left-4 top-0 w-8 h-8 rounded-full bg-red-700 text-white font-bold flex items-center justify-center text-sm shadow-md ring-4 ring-[#07090E]">
-      5
-    </div>
-    
-    <div>
-      <span class="text-xs font-mono font-bold uppercase tracking-wider text-red-400">Paso 05 • Cliente Claude</span>
-      <h3 class="text-xl font-bold text-white mt-0.5">Configurar Claude Desktop (Configuración Dual)</h3>
-      <p class="text-sm text-slate-300 mt-1">
-        Esta configuración te permite tener <strong>Nonica MCP</strong> (para auditoría y lectura rápida) y <strong>Demolinator MCP</strong> (para creación paramétrica 3D) en un solo archivo.
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+        Instalación y Conexión de <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-amber-300 to-red-500">Demolinator MCP</span>
+      </h2>
+      <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+        Habilita a <strong>Claude Desktop</strong> para modelar elementos estructurales, consultar geometría analítica y generar metrados en tiempo real mediante <strong>pyRevit Routes</strong>.
       </p>
-    </div>
 
-    <div class="space-y-2">
-      <span class="text-xs text-slate-400">
-        Abre tu archivo con <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Win + R</kbd> ➔ pega <code>%APPDATA%\Claude\claude_desktop_config.json</code> y usa este bloque:
-      </span>
-      <div class="relative group">
-        <pre class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs text-amber-300 overflow-x-auto"><code>{
-
-
-"mcpServers": {
-"Revit-Nonica": {
-"command": "C:\NONICA\OtherFiles\System\Core\net8.0-windows\RevitMCPConnection.exe",
-"args": []
-},
-"Revit-Demolinator": {
-"command": "C:\Users\USUARIO\.local\bin\uv.exe",
-"args": [
-"--directory",
-"C:\Users\USUARIO\AppData\Roaming\pyRevit\Extensions\revit-mcp.extension",
-"run",
-"main.py"
-]
-}
-}
-}
-
- Copiar
-
-
-
- Recuerda reemplazar USUARIO por el nombre exacto de tu cuenta de Windows en ambas rutas.
-
-
-
-
-  <!-- METODOLOGÍA DIDÁCTICA DEL TALLER -->
-  <section class="p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-red-900/50 shadow-2xl space-y-4">
-    <div class="flex items-center gap-2.5">
-      <div class="w-8 h-8 rounded-lg bg-red-700 text-white flex items-center justify-center font-bold text-sm shadow">
-        <i class="fa-solid fa-graduation-cap"></i>
-      </div>
-      <div>
-        <h3 class="text-base font-bold text-white">Casos Prácticos para el Alumno en Laboratorio</h3>
-        <p class="text-xs text-slate-400">Flujo de contrastación de ingeniería civil entre código nativo e Inteligencia Artificial</p>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-2">
-      
-      <!-- Caso 1 -->
-      <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-        <span class="font-bold text-amber-400 flex items-center gap-1.5">
-          <i class="fa-solid fa-scale-balanced"></i> Ejercicio A: Comparativa de Metrados
-        </span>
-        <p class="text-slate-300 text-[11px] leading-relaxed">
-          1. Ejecuta tu botón de <strong>pyRevit</strong> tradicional para calcular volúmenes de concreto.<br>
-          2. En Claude Desktop con el servidor Nonica activo, escribe:
-        </p>
-        <div class="p-2.5 rounded bg-slate-900 border border-slate-800 text-slate-200 font-mono text-[10px]">
-          "Audita el volumen de concreto de las columnas y vigas en el modelo actual y agrúpalo por tipo de elemento."
+      <!-- Arquitectura Conceptual Simplificada -->
+      <div class="mt-8 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 max-w-3xl mx-auto text-left">
+        <div class="text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider flex items-center gap-2">
+          <i class="fa-solid fa-network-wired text-red-400"></i> Flujo de Ejecución (Arquitectura del Taller)
         </div>
-        <p class="text-[10px] text-slate-400">
-          <strong>Análisis en clase:</strong> Comparar el volumen nominal ($b \times h \times L$) vs. volumen sólido neto descontando uniones geométricas (`Solid.Volume`).
-        </p>
-      </div>
-
-      <!-- Caso 2 -->
-      <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-        <span class="font-bold text-red-400 flex items-center gap-1.5">
-          <i class="fa-solid fa-file-pdf"></i> Ejercicio B: De Plano PDF a Modelo 3D
-        </span>
-        <p class="text-slate-300 text-[11px] leading-relaxed">
-          1. Arrastra una imagen o plano PDF de planta al chat de Claude Desktop.<br>
-          2. Con el servidor Demolinator activo, escribe:
-        </p>
-        <div class="p-2.5 rounded bg-slate-900 border border-slate-800 text-slate-200 font-mono text-[10px]">
-          "Identifica las cotas y ejes de este plano y utiliza las herramientas de Demolinator para crear los muros perimetrales en el Nivel 1 de Revit."
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-2 text-center text-xs">
+          <div class="bg-slate-800/80 p-2.5 rounded-lg border border-slate-700">
+            <i class="fa-solid fa-comments text-amber-400 text-base mb-1 block"></i>
+            <span class="font-bold text-slate-200">Claude Desktop</span>
+            <span class="block text-[10px] text-slate-400 mt-0.5">Prompt & Parámetros</span>
+          </div>
+          <div class="bg-slate-800/80 p-2.5 rounded-lg border border-slate-700">
+            <i class="fa-brands fa-python text-sky-400 text-base mb-1 block"></i>
+            <span class="font-bold text-slate-200">MCP FastMCP (Python)</span>
+            <span class="block text-[10px] text-slate-400 mt-0.5">uv run main.py (stdio)</span>
+          </div>
+          <div class="bg-slate-800/80 p-2.5 rounded-lg border border-slate-700">
+            <i class="fa-solid fa-server text-emerald-400 text-base mb-1 block"></i>
+            <span class="font-bold text-slate-200">pyRevit Routes</span>
+            <span class="block text-[10px] text-slate-400 mt-0.5">HTTP localhost:48884</span>
+          </div>
+          <div class="bg-slate-800/80 p-2.5 rounded-lg border border-slate-700 border-red-900/50">
+            <i class="fa-solid fa-cubes text-red-400 text-base mb-1 block"></i>
+            <span class="font-bold text-slate-200">Revit API Engine</span>
+            <span class="block text-[10px] text-slate-400 mt-0.5">Modelado & Metrados</span>
+          </div>
         </div>
-        <p class="text-[10px] text-slate-400">
-          <strong>Análisis en clase:</strong> Demostrar cómo el LLM interpreta geometría 2D y llama a <code>create_line_based_element</code> en tiempo real.
-        </p>
       </div>
-
     </div>
   </section>
 
-</div>
+  <!-- Contenedor Principal de Pasos -->
+  <main id="quickstart" class="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-12">
+
+    <!-- Requisitos Previos -->
+    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+      <h3 class="text-lg font-bold text-white flex items-center gap-2 mb-4">
+        <i class="fa-solid fa-clipboard-check text-red-500"></i> Requisitos Previos Obligatorios
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+        <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-950/60 border border-slate-800">
+          <i class="fa-solid fa-check-circle text-emerald-400 mt-0.5"></i>
+          <div>
+            <strong>Autodesk Revit</strong>
+            <p class="text-slate-400 text-[11px]">Versión 2024, 2025, 2026 o 2027 instalada.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-950/60 border border-slate-800">
+          <i class="fa-solid fa-check-circle text-emerald-400 mt-0.5"></i>
+          <div>
+            <strong>pyRevit CLI / Runtime</strong>
+            <p class="text-slate-400 text-[11px]">Instalado con pestaña funcional en Revit.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-950/60 border border-slate-800">
+          <i class="fa-solid fa-check-circle text-emerald-400 mt-0.5"></i>
+          <div>
+            <strong>Claude Desktop</strong>
+            <p class="text-slate-400 text-[11px]">Cliente de Anthropic en Windows.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 1 -->
+    <div class="relative pl-10 border-l-2 border-red-900/60 space-y-4">
+      <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-red-700 text-white font-bold flex items-center justify-center text-sm step-badge border-2 border-slate-950">
+        1
+      </div>
+      <div>
+        <span class="text-xs font-mono text-red-400 font-semibold tracking-wider uppercase">Entorno de ejecución</span>
+        <h3 class="text-xl font-bold text-white">Instalar el gestor ultrarrápido de Python (uv)</h3>
+        <p class="text-sm text-slate-400 mt-1">
+          Demolinator utiliza <code>uv</code> para resolver dependencias y levantar el servidor FastMCP sin alterar tu Python global.
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <p class="text-xs text-slate-300 font-medium">Abre <strong>PowerShell</strong> como usuario regular y ejecuta:</p>
+        <div class="relative group">
+          <pre class="bg-slate-900 p-3.5 rounded-xl border border-slate-800 text-xs text-amber-300 overflow-x-auto"><code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
+          <button onclick="copyCode(this)" class="absolute right-2 top-2 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs border border-slate-700 transition">
+            <i class="fa-regular fa-copy"></i> Copiar
+          </button>
+        </div>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-amber-950/30 border border-amber-900/40 text-xs text-amber-200">
+        <i class="fa-solid fa-triangle-exclamation mr-1.5 text-amber-400"></i>
+        <strong>¿Te dio error de comando no reconocido al poner <code>uv --version</code>?</strong>
+        <p class="mt-1 text-slate-400">
+          Cierra esa ventana de PowerShell y abre una nueva para que Windows cargue el nuevo <code>Path</code>. Comprueba con:
+        </p>
+        <div class="relative group mt-2">
+          <pre class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-xs text-emerald-300 overflow-x-auto"><code>uv --version</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 2 -->
+    <div class="relative pl-10 border-l-2 border-red-900/60 space-y-4">
+      <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-red-700 text-white font-bold flex items-center justify-center text-sm step-badge border-2 border-slate-950">
+        2
+      </div>
+      <div>
+        <span class="text-xs font-mono text-red-400 font-semibold tracking-wider uppercase">Clonación del Repositorio</span>
+        <h3 class="text-xl font-bold text-white">Instalar la extensión en pyRevit</h3>
+        <p class="text-sm text-slate-400 mt-1">
+          La extensión debe residir en la carpeta de extensiones de pyRevit para que el módulo registre los 48 endpoints de la API.
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <p class="text-xs text-slate-300 font-medium">Ejecuta en PowerShell para ingresar a la carpeta de pyRevit y clonar:</p>
+        <div class="relative group">
+          <pre class="bg-slate-900 p-3.5 rounded-xl border border-slate-800 text-xs text-amber-300 overflow-x-auto"><code>cd "$env:APPDATA\pyRevit\Extensions"
+git clone https://github.com/Demolinator/revit-mcp-server.git revit-mcp.extension</code></pre>
+          <button onclick="copyCode(this)" class="absolute right-2 top-2 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs border border-slate-700 transition">
+            <i class="fa-regular fa-copy"></i> Copiar
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <p class="text-xs text-slate-300 font-medium">Instala las dependencias del servidor MCP con <code>uv sync</code>:</p>
+        <div class="relative group">
+          <pre class="bg-slate-900 p-3.5 rounded-xl border border-slate-800 text-xs text-amber-300 overflow-x-auto"><code>cd "$env:APPDATA\pyRevit\Extensions\revit-mcp.extension"
+uv sync</code></pre>
+          <button onclick="copyCode(this)" class="absolute right-2 top-2 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs border border-slate-700 transition">
+            <i class="fa-regular fa-copy"></i> Copiar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 3 -->
+    <div class="relative pl-10 border-l-2 border-red-900/60 space-y-4">
+      <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-red-700 text-white font-bold flex items-center justify-center text-sm step-badge border-2 border-slate-950">
+        3
+      </div>
+      <div>
+        <span class="text-xs font-mono text-red-400 font-semibold tracking-wider uppercase">Configuración de pyRevit</span>
+        <h3 class="text-xl font-bold text-white">Vincular Carpeta y Encender Servidor de Rutas</h3>
+        <p class="text-sm text-slate-400 mt-1">
+          Este paso evita el error de ruta no encontrada (<code>RouteHandlerNotDefinedException</code>) y los congelamientos de Revit.
+        </p>
+      </div>
+
+      <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-3 text-xs leading-relaxed">
+        <ol class="list-decimal list-inside space-y-2 text-slate-300">
+          <li>Abre <strong>Autodesk Revit</strong> y abre cualquier proyecto estructural o plantilla arquitectónica.</li>
+          <li>En la cinta superior, dirígete a la pestaña <strong>pyRevit</strong> ➔ clic en la flecha de <strong>pyRevit</strong> ➔ <strong>Settings</strong>.</li>
+          <li>
+            En el apartado <strong>"Directorios de Extensión Personalizados"</strong> (abajo), haz clic en <strong>Agregar carpeta</strong> y selecciona:
+            <code class="text-amber-300 bg-slate-950 px-2 py-0.5 rounded border border-slate-800 block my-1">
+              C:\Users\TU_USUARIO\AppData\Roaming\pyRevit\Extensions
+            </code>
+            <em class="text-slate-400 text-[11px]">(Selecciona la carpeta padre <code>Extensions</code>, no la interior).</em>
+          </li>
+          <li>
+            En el panel izquierdo, ve a la sección <strong>Rutas</strong> y enciende el interruptor:
+            <strong class="text-emerald-400 block my-1">🔘 Servidor de Rutas (Beta) &rarr; ACTIVADO (Azul)</strong>
+          </li>
+          <li>
+            Haz clic en <strong>"Solo Guardar Configuración"</strong>. 
+            <span class="text-amber-400 font-semibold">Cierra Revit completamente y vuelve a abrirlo</span> (esto previene los cuelgues que genera la opción "Guardar y recargar").
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- PASO 4 -->
+    <div class="relative pl-10 border-l-2 border-red-900/60 space-y-4">
+      <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-red-700 text-white font-bold flex items-center justify-center text-sm step-badge border-2 border-slate-950">
+        4
+      </div>
+      <div>
+        <span class="text-xs font-mono text-red-400 font-semibold tracking-wider uppercase">Verificación de Endpoint</span>
+        <h3 class="text-xl font-bold text-white">Comprobar Conexión Local en Navegador</h3>
+        <p class="text-sm text-slate-400 mt-1">
+          Asegúrate de que pyRevit Routes esté respondiendo antes de enlazarlo con el cliente LLM.
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <p class="text-xs text-slate-300">Abre tu navegador e ingresa a:</p>
+        <div class="flex items-center gap-2">
+          <a href="http://localhost:48884/revit_mcp/status/" target="_blank" class="text-xs font-mono text-sky-400 bg-slate-900 hover:bg-slate-850 px-3 py-2 rounded-lg border border-slate-800 flex-1 transition flex items-center justify-between">
+            <span>http://localhost:48884/revit_mcp/status/</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs">
+        <span class="font-semibold text-emerald-400 flex items-center gap-1.5 mb-2">
+          <i class="fa-solid fa-circle-check"></i> Respuesta Exitosa Esperada:
+        </span>
+        <pre class="text-[11px] text-slate-300 bg-slate-950 p-2.5 rounded border border-slate-800 overflow-x-auto"><code>{
+  "status": "active",
+  "health": "healthy",
+  "revit_available": true,
+  "document_title": "tu_proyecto_estructural",
+  "api_name": "revit_mcp"
+}</code></pre>
+      </div>
+    </div>
+
+    <!-- PASO 5 -->
+    <div class="relative pl-10 border-l-2 border-red-900/60 space-y-4">
+      <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-red-700 text-white font-bold flex items-center justify-center text-sm step-badge border-2 border-slate-950">
+        5
+      </div>
+      <div>
+        <span class="text-xs font-mono text-red-400 font-semibold tracking-wider uppercase">Integración Anthropic</span>
+        <h3 class="text-xl font-bold text-white">Configurar Claude Desktop (claude_desktop_config.json)</h3>
+        <p class="text-sm text-slate-400 mt-1">
+          Vincula Demolinator junto a Nonica MCP en el archivo central de configuración de Claude.
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <p class="text-xs text-slate-300">
+          Abre tu archivo con <code>Win + R</code> ➔ ejecuta <code>%APPDATA%\Claude\claude_desktop_config.json</code> y configura ambos servidores:
+        </p>
+        <div class="relative group">
+          <pre class="bg-slate-900 p-4 rounded-xl border border-slate-800 text-xs text-amber-300 overflow-x-auto"><code>{
+  "mcpServers": {
+    "Revit-Nonica": {
+      "command": "C:\\NONICA\\OtherFiles\\System\\Core\\net8.0-windows\\RevitMCPConnection.exe",
+      "args": []
+    },
+    "Revit-Demolinator": {
+      "command": "C:\\Users\\USUARIO\\.local\\bin\\uv.exe",
+      "args": [
+        "--directory",
+        "C:\\Users\\USUARIO\\AppData\\Roaming\\pyRevit\\Extensions\\revit-mcp.extension",
+        "run",
+        "main.py"
+      ]
+    }
+  }
+}</code></pre>
+          <button onclick="copyCode(this)" class="absolute right-2 top-2 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs border border-slate-700 transition">
+            <i class="fa-regular fa-copy"></i> Copiar
+          </button>
+        </div>
+        <p class="text-[11px] text-slate-400">
+          <i class="fa-solid fa-circle-info text-sky-400 mr-1"></i> Reemplaza <code>USUARIO</code> por el nombre exacto de tu cuenta de Windows.
+        </p>
+      </div>
+    </div>
+
+    <!-- PASO 6: Didáctica del Taller (Comparativa y Modelado desde PDF) -->
+    <div class="relative pl-10 border-l-2 border-red-900/60 space-y-4">
+      <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-red-700 text-white font-bold flex items-center justify-center text-sm step-badge border-2 border-slate-950">
+        6
+      </div>
+      <div>
+        <span class="text-xs font-mono text-red-400 font-semibold tracking-wider uppercase">Dinámica Didáctica de Clase</span>
+        <h3 class="text-xl font-bold text-white">Casos de Uso para el Alumno en Laboratorio</h3>
+        <p class="text-sm text-slate-400 mt-1">
+          Metodología de contrastación entre tu software previo en código directo vs. MCPs inteligentes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+        
+        <!-- Caso 1 -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+          <div class="font-bold text-amber-400 flex items-center gap-2">
+            <i class="fa-solid fa-scale-balanced"></i> Ejercicio 1: Auditoría de Metrados
+          </div>
+          <p class="text-slate-300 text-[11px] leading-relaxed">
+            Ejecuta tu botón de <strong>pyRevit</strong> tradicional que calcula volúmenes estructurales. Luego en Claude le pides:
+          </p>
+          <div class="p-2.5 rounded bg-slate-950 text-slate-200 border border-slate-800 font-mono text-[10px]">
+            "Audita el volumen total de concreto de columnas y vigas con Nonica y clasifícalo por tipo de sección."
+          </div>
+          <span class="text-slate-400 text-[10px] block">
+            <strong>Objetivo:</strong> Comparar volumen nominal ($b \times h \times L$) vs. volumen sólido neto (`Solid.Volume`).
+          </span>
+        </div>
+
+        <!-- Caso 2 -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+          <div class="font-bold text-red-400 flex items-center gap-2">
+            <i class="fa-solid fa-file-pdf"></i> Ejercicio 2: De Plano PDF a Modelo 3D
+          </div>
+          <p class="text-slate-300 text-[11px] leading-relaxed">
+            Arrastra el plano en PDF o imagen de distribución al chat de Claude Desktop y solicita:
+          </p>
+          <div class="p-2.5 rounded bg-slate-950 text-slate-200 border border-slate-800 font-mono text-[10px]">
+            "Analiza las cotas de este plano y usa Demolinator (create_line_based_element) para levantar los muros perimetrales en el Nivel 1."
+          </div>
+          <span class="text-slate-400 text-[10px] block">
+            <strong>Objetivo:</strong> Ver en vivo cómo Claude razona las coordenadas y crea geometría paramétrica en Revit.
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer Institucional -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 px-4 text-center text-xs text-slate-500">
+    <div class="max-w-4xl mx-auto space-y-2">
+      <p class="text-slate-400 font-medium">Colegio de Ingenieros del Perú • Capítulo de Ingeniería Civil</p>
+      <p>Material Académico para Talleres Oficiales de Automatización BIM, Python & Protocolo MCP (2026).</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyCode(btn) {
+      const pre = btn.parentElement.querySelector('code');
+      navigator.clipboard.writeText(pre.innerText).then(() => {
+        const original = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-check text-emerald-400"></i> Copiado';
+        btn.classList.add('border-emerald-600');
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.classList.remove('border-emerald-600');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
